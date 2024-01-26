@@ -15,15 +15,16 @@ export class ReactiveFormComponent {
   reactiveForm!: FormGroup;
 
   ngOnInit() {
+    console.log("OnInit");
     this.reactiveForm = new FormGroup({
       firstname: new FormControl(''),
       lastname: new FormControl(''),
       email: new FormControl(''),
       username: new FormControl(''),
       dob: new FormControl(''),
-      gender: new FormControl(''),
+      gender: new FormControl('male'),
       address: new FormControl(''),
-      country: new FormControl(''),
+      country: new FormControl('IND'),
       city: new FormControl(''),
       state: new FormControl(''),
       pincode: new FormControl(''),
@@ -46,6 +47,9 @@ export class ReactiveFormComponent {
 
   getRandomChar = (source: string) => source[Math.floor(Math.random() * source.length)];
 
+  OnFormSubmitted() {
+    console.log(this.reactiveForm);
+  }
 
 
 }

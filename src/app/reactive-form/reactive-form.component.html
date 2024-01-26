@@ -1,16 +1,34 @@
 <section class="container">
   <header>Registration form</header>
-  <form class="form">
+  <form class="form" [formGroup]="reactiveForm" (ngSubmit)="OnFormSubmitted()">
     <div class="column">
       <div class="input-box">
-        <input type="text" name="" id="firstname" placeholder="First Name" />
+        <input
+          type="text"
+          name=""
+          id="firstname"
+          placeholder="First Name"
+          formControlName="firstname"
+        />
       </div>
       <div class="input-box">
-        <input type="text" name="" id="lastname" placeholder="Last Name" />
+        <input
+          type="text"
+          name=""
+          id="lastname"
+          placeholder="Last Name"
+          formControlName="lastname"
+        />
       </div>
     </div>
     <div class="input-box">
-      <input type="email" name="" id="email" placeholder="Email" />
+      <input
+        type="email"
+        name=""
+        id="email"
+        placeholder="Email"
+        formControlName="email"
+      />
     </div>
     <div class="column">
       <div class="input-box">
@@ -19,10 +37,11 @@
           name=""
           id="generated-username"
           placeholder="username"
+          formControlName="username"
         />
       </div>
       <button
-        class="btn btn-primary"
+        class="btn btn-warning"
         type="button"
         (click)="generateRandomUsername()"
       >
@@ -32,16 +51,18 @@
     <div class="gender-box">
       <div class="dob">
         <label for="dob">Date of Birth</label>
-        <input type="date" name="dob" id="dob" />
+        <input type="date" name="dob" id="dob" formControlName="dob" />
       </div>
       <div class="gender-option">
         <div class="gender">
           <label for="gender">Select Gender:</label>
-          <select id="gender" name="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="others">Others</option>
-            <option value="not-disclose">Don't want to disclose</option>
+          <select id="gender" name="gender" formControlName="gender">
+            <option value="male" value="male">Male</option>
+            <option value="female" value="female">Female</option>
+            <option value="others" value="others">Others</option>
+            <option value="not-disclose" value="undefined">
+              Don't want to disclose
+            </option>
           </select>
         </div>
       </div>
@@ -54,11 +75,11 @@
         name=""
         id="street-address"
         placeholder="street-address"
+        formControlName="address"
       />
       <div class="input-box column">
         <div class="country">
-          <select>
-            <option value="country">Select Country</option>
+          <select formControlName="country">
             <option value="AFG">Afghanistan</option>
             <option value="ALA">Åland Islands</option>
             <option value="ALB">Albania</option>
@@ -318,11 +339,23 @@
         </div>
 
         <div class="input-box city">
-          <input type="text" name="city" id="city" placeholder="city" />
+          <input
+            type="text"
+            name="city"
+            id="city"
+            placeholder="city"
+            formControlName="city"
+          />
         </div>
 
         <div class="input-box state">
-          <input type="text" name="state" id="state" placeholder="state" />
+          <input
+            type="text"
+            name="state"
+            id="state"
+            placeholder="state"
+            formControlName="state"
+          />
         </div>
 
         <div class="input-box pincode">
@@ -331,12 +364,13 @@
             name="pincode"
             id="pincode"
             placeholder="pincode"
+            formControlName="pincode"
           />
         </div>
       </div>
     </div>
     <div clsss="submit-form-data">
-      <button type="button" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success btn-md">Submit</button>
     </div>
   </form>
 </section>
