@@ -1,0 +1,119 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #e2f8cd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom:20px;
+  color: #0056b3;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.input-box {
+  position: relative;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #77bbf3;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 8px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+.bottom-border{
+    margin: 0px 10px 0px 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+label {
+  font-weight: bold;
+}
+
+/* Gender Box Styles */
+.gender-box {
+  margin-top: 20px;
+}
+
+.bottom-border {
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+}
+
+.gender-option {
+  display: flex;
+  flex-direction: column; /* Change to column */
+  gap: 15px;
+}
+
+.address {
+  margin-top: 20px;
+}
+
+.submit-form-data{
+    text-align: center;
+}
+
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .column {
+    grid-template-columns: 1fr;
+  }
+  .gender {
+    margin-top: 10px;
+  }
+
+  .city,
+  .state,
+  .pincode {
+    width: 100%;
+    margin-right: 0;
+  }
+}
