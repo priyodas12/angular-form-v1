@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -17,6 +17,22 @@ export class ReactiveFormComponent {
   ngOnInit() {
     console.log("OnInit");
     this.reactiveForm = new FormGroup({
+      firstname: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      lastname: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl(''),
+      dob: new FormControl(''),
+      gender: new FormControl('male'),
+      address: new FormControl(''),
+      country: new FormControl('IND'),
+      city: new FormControl(''),
+      state: new FormControl(''),
+      pincode: new FormControl(''),
+    });
+  }
+
+  resetForm() {
+    this.reactiveForm.reset({
       firstname: new FormControl(''),
       lastname: new FormControl(''),
       email: new FormControl(''),
@@ -28,6 +44,7 @@ export class ReactiveFormComponent {
       city: new FormControl(''),
       state: new FormControl(''),
       pincode: new FormControl(''),
+      // Set other default values here
     });
   }
 
@@ -49,7 +66,7 @@ export class ReactiveFormComponent {
 
   OnFormSubmitted() {
     console.log(this.reactiveForm);
+    //this.resetForm();
   }
-
 
 }
