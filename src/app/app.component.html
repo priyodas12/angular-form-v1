@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <form (ngSubmit)="onFormSubmit(f)" #f="ngForm">
+      <form (ngSubmit)="onFormSubmit()" #formData="ngForm">
         <div class="form-group mt-2">
           <label for="username">username</label>
           <input
@@ -10,6 +10,7 @@
             id="username"
             name="username"
             [(ngModel)]="userdata.username"
+            required
           />
         </div>
         <div class="form-group mt-2">
@@ -20,7 +21,14 @@
             id="email"
             name="email"
             [(ngModel)]="userdata.email"
+            required
+            #email="ngModel"
           />
+          <span
+            class="email-hint"
+            *ngIf="email && !email.valid && email.touched"
+            >Please enter valid email</span
+          >
         </div>
         <div class="form-group mt-2">
           <label for="gender">gender</label>
@@ -37,7 +45,9 @@
           </select>
         </div>
         <div class="mt-3">
-          <button class="btn btn-primary">submit</button>
+          <button class="btn btn-primary" [disabled]="!formData.valid">
+            submit
+          </button>
         </div>
       </form>
     </div>
