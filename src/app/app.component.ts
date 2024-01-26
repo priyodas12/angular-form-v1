@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -22,9 +22,17 @@ export class AppComponent {
   constructor() {
     console.log("form component loaded!");
   }
-
-  onFormSubmit() {
+  resetForm() {
+    this.userdata = {
+      username: '',
+      email: '',
+      gender: '',
+    }
+  }
+  onFormSubmit(f: NgForm) {
     console.log("Form Submitted!");
+    console.log(f);
     console.log(this.userdata);
+    this.resetForm();
   }
 }
