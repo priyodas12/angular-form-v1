@@ -119,7 +119,17 @@ label {
   }
 }
 
-small {
-  color: red;
-  font-weight: bold;
+.error-message {
+  animation: blink 1s ease-in-out infinite alternate;
+  color: red
+}
+
+@keyframes flip {
+  from {
+    capacity: 1
+  }
+
+  to {
+    capacity: 0
+  }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormArrayName, FormControl, FormControlName, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -21,14 +21,21 @@ export class ReactiveFormComponent {
       firstname: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       lastname: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      username: new FormControl(''),
-      dob: new FormControl(''),
-      gender: new FormControl('male'),
-      address: new FormControl(''),
-      country: new FormControl('IND'),
-      city: new FormControl(''),
-      state: new FormControl(''),
-      pincode: new FormControl(''),
+      username: new FormControl('', [Validators.required]),
+      dob: new FormControl('', [Validators.required]),
+      gender: new FormControl('male', [Validators.required]),
+      address: new FormGroup({
+        street: new FormControl(''),
+        country: new FormControl('IND', [Validators.required]),
+        city: new FormControl('', [Validators.required]),
+        state: new FormControl('', [Validators.required]),
+        pincode: new FormControl('', [Validators.required]),
+      }),
+      skills: new FormArray([
+        new FormControl(''),
+        new FormControl(''),
+        new FormControl(''),
+      ])
     });
   }
 
@@ -40,12 +47,13 @@ export class ReactiveFormComponent {
       username: new FormControl(''),
       dob: new FormControl(''),
       gender: new FormControl('male'),
-      address: new FormControl(''),
-      country: new FormControl('IND'),
-      city: new FormControl(''),
-      state: new FormControl(''),
-      pincode: new FormControl(''),
-      // Set other default values here
+      address: new FormGroup({
+        street: new FormControl(''),
+        country: new FormControl('IND'),
+        city: new FormControl(''),
+        state: new FormControl(''),
+        pincode: new FormControl(''),
+      })
     });
   }
 
