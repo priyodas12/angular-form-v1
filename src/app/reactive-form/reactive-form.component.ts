@@ -49,10 +49,13 @@ export class ReactiveFormComponent {
   }
 
   generateRandomUsername = () => {
+
     const characters = 'abcdefghijklmnopqrstuvwxyz';
+
     const numbers = '0123456789';
 
     const randomChars = Array.from({ length: 10 }, () => this.getRandomChar(characters)).join('');
+
     const randomNumberPair = Array.from({ length: 3 }, () => this.getRandomChar(numbers)).join('');
 
     const randomUsername = `${randomChars}${randomNumberPair}`;
@@ -65,8 +68,7 @@ export class ReactiveFormComponent {
   getRandomChar = (source: string) => source[Math.floor(Math.random() * source.length)];
 
   OnFormSubmitted() {
-    console.log(this.reactiveForm);
-    //this.resetForm();
+    console.log(this.reactiveForm)
   }
 
 }
