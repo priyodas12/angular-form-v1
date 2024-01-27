@@ -9,7 +9,13 @@
           id="firstname"
           placeholder="First Name"
           formControlName="firstname"
-        />
+        /><small
+          *ngIf="
+            reactiveForm.get('firstname')?.invalid &&
+            reactiveForm.get('firstname')?.touched
+          "
+          >*Firstname is mandatory field!</small
+        >
       </div>
       <div class="input-box">
         <input
@@ -19,6 +25,13 @@
           placeholder="Last Name"
           formControlName="lastname"
         />
+        <small
+          *ngIf="
+            reactiveForm.get('lastname')?.invalid &&
+            reactiveForm.get('lastname')?.touched
+          "
+          >*Lastname is mandatory field!</small
+        >
       </div>
     </div>
     <div class="input-box">
@@ -29,6 +42,13 @@
         placeholder="Email"
         formControlName="email"
       />
+      <small
+        *ngIf="
+          reactiveForm.get('email')?.invalid &&
+          reactiveForm.get('email')?.touched
+        "
+        >*Email is mandatory field!</small
+      >
     </div>
     <div class="column">
       <div class="input-box">
@@ -370,7 +390,13 @@
       </div>
     </div>
     <div clsss="submit-form-data">
-      <button type="submit" class="btn btn-success btn-md">Submit</button>
+      <button
+        type="submit"
+        class="btn btn-success btn-md"
+        [disabled]="!reactiveForm.valid"
+      >
+        Submit
+      </button>
     </div>
   </form>
 </section>

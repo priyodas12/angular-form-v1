@@ -19,6 +19,10 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
 header {
   font-size: 24px;
   font-weight: bold;
@@ -67,7 +71,6 @@ button {
   border-bottom: 1px solid gray;
 }
 
-
 label {
   font-weight: bold;
   margin-bottom: 5px;
@@ -78,7 +81,6 @@ label {
 .gender-box {
   margin: 10px;
 }
-
 
 .gender-option {
   display: flex;
@@ -115,4 +117,9 @@ label {
     width: 100%;
     margin-right: 0;
   }
+}
+
+small {
+  color: red;
+  font-weight: bold;
 }
